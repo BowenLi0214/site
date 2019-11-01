@@ -1,19 +1,19 @@
 import Block from "./Components/Block/Block";
 import React from "react";
-import { Content } from "./Interface/Interface";
+import { Content, BlockType } from "./Models/Model";
 import "./App.scss";
 
 function App() {
   let blocks: Content[] = [
-    { id: 0, header: "Bowen" },
-    { id: 1, header: "test2", content: "Content" }
+    { id: 0, header: "Bowen", type: BlockType.intro },
+    { id: 1, header: "test2", content: "Content", type: BlockType.content }
   ];
   return (
     <div className="App">
       {blocks.map((block: Content) => {
         return (
           <div key={block.id}>
-            <Block>{block}</Block>
+            <Block type={block.type}>{block}</Block>
           </div>
         );
       })}

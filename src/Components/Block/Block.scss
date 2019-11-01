@@ -1,6 +1,8 @@
 .blockContainer {
-  background-color: white;
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
-  color: black;
+  color: white;
+}
+.intro {
+  background-color: black;
 }

@@ -1,16 +1,24 @@
 import React from "react";
 import "./Block.scss";
-import { Content } from "../../Interface/Interface";
+import Intro from "./Intro/Intro";
+import { Content, BlockType } from "Models/Model";
+
 interface Props {
   children?: Content;
+  type: BlockType;
 }
 
 const Block = (props: Props) => {
-  let content = props.children;
+  let content;
+  console.log(props.type);
+  switch (props.type) {
+    case BlockType.intro:
+      content = <Intro />;
+      break;
+  }
   return (
-    <div className="blockContainer">
-      <div>{content && content.header}</div>
-      <div>{content && content.content}</div>
+    <div className={[BlockType.intro, "blockContainer"].join(" ")}>
+      {content}
     </div>
   );
 };
